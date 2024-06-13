@@ -1,24 +1,23 @@
 package net.javaguides.springboot.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "employees")
-public class Employee {
+@Table(name = "product")
+public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long product_id;
 
-	@Column(name = "first_name")
+	@Column(name = "product_name")
 	@Size(min=2,max=15,message = "Name minimum length is 2 and max length 15 your length")
-	private String firstName;
+	private String productName;
 
-	@Column(name = "last_name")
-	private String lastName;
+	@Column(name = "type")
+	private String type;
 	
 	@Column(name = "email_id")
 	@Email(message="Not valid email")
@@ -28,34 +27,34 @@ public class Employee {
 	private  String house_no;
 
 	@ManyToOne(cascade=CascadeType.ALL)
-	private Employee employee;
+	private Product product;
 	
-	public Employee() {
+	public Product() {
 		
 	}
 
-	public long getId() {
-		return id;
+	public long getProduct_id() {
+		return product_id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setProduct_id(long product_id) {
+		this.product_id = product_id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getProductName() {
+		return this.productName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getType() {
+		return this.type;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getEmailId() {
@@ -72,5 +71,13 @@ public class Employee {
 
 	public void setHouse_no(String house_no) {
 		this.house_no = house_no;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 }

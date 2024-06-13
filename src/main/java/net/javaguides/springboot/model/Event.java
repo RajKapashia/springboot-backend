@@ -19,8 +19,8 @@ public class Event {
 	private String organiserName;
 
 	@Column(name = "invites")
-	@OneToMany(targetEntity = Employee.class, cascade = CascadeType.ALL)
-	ArrayList<Employee> employeeArrayList;
+	@OneToMany(targetEntity = Product.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	ArrayList<Product> employeeArrayList;
 
 	public Event() {
 
@@ -50,7 +50,7 @@ public class Event {
 		this.organiserName = organiserName;
 	}
 
-	public ArrayList<Employee> getEmployeeArrayList() {
+	public ArrayList<Product> getEmployeeArrayList() {
 		return employeeArrayList;
 	}
 
