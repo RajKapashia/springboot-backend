@@ -26,7 +26,7 @@ public class ProductService {
        ArrayList<String> productName = new ArrayList<>();
        for(int i=0;i< jsonNode.size();i++)
            productName.add(jsonNode.get(i).get("lastName").asText());
-        System.out.println("Name: " + productName);
+        System.out.println("Name:  " + productName);
        // String name = jsonNode.get("firstName").asText();
 //        int age = jsonNode.get("age").asInt();
 //        String city = jsonNode.get("city").asText();
